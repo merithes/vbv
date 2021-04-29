@@ -95,6 +95,10 @@
     methods: {
     },
     created() {
+      this.$q.loadingBar.setDefaults({
+        color: 'secondary',
+        class: 'vbv-neon'
+      })
       this.toggleHeader = debounce(() => {
         this.showHeader = document.scrollingElement.scrollTop > 30
       }, 100)

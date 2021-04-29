@@ -59,6 +59,12 @@
         })
       }
     },
+    mounted() {
+      this.bindLinksToRoute()
+    },
+    updated() {
+      this.bindLinksToRoute()
+    },
     computed: {
       pageData() {
         return this.$apollo.queries.pages.loading && Array.isArray(this.pages) ?
@@ -68,12 +74,6 @@
       loading() {
         return this.$apollo.queries.pages.loading
       }
-    },
-    mounted() {
-      this.bindLinksToRoute()
-    },
-    updated() {
-      this.bindLinksToRoute()
     },
     apollo: {
       pages: {
