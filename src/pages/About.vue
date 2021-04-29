@@ -32,6 +32,37 @@
       return {
       }
     },
+    methods: {
+      bindLinksToRoute() {
+        let links = this.$el.querySelectorAll("a")
+        let _this = this
+        links.forEach(function(link) {
+          if (link.getAttribute("href").charAt(0) === "/") {
+            link.setAttribute("href", "#" + link.getAttribute("href"))
+          }
+
+          link.onclick = function(e) {
+            if (
+              typeof e.target === 'object' &&
+              typeof e.target.href === 'string' &&
+              e.target.href !== null &&
+              (
+                e.target.href.charAt(0) === "/" ||
+                e.target.href.indexOf("#/") === 0 ||
+                e.target.href.match(/[^?]+victor\.boivin\.dev/)
+              )
+            ) {
+              e.preventDefault()
+              if (e.target.href.indexOf("/#/") === 0) {
+                _this.$router.push(e.target.href.substring(3))
+              } else {
+                _this.$router.push(e.target.href.replace(/[^?]+victor\.boivin\.dev\/#\//, ''))
+              }
+            }
+          }
+        })
+      }
+    },
     computed: {
       pageData() {
         return this.$apollo.queries.pages.loading && Array.isArray(this.pages) ?
@@ -43,66 +74,10 @@
       }
     },
     mounted() {
-      let links = this.$el.querySelectorAll("a")
-      let _this = this
-      links.forEach(function(link) {
-        link.onclick = function(e) {
-          e.preventDefault()
-          if (
-            typeof e.target === 'object' &&
-            typeof e.target.href === 'string' &&
-            e.target.href !== null &&
-            (
-              e.target.href.charAt(0) === "/" ||
-              e.target.href.indexOf("victor.boivin.dev") === 0 ||
-              e.target.href.indexOf("https://victor.boivin.dev/") === 0 ||
-              e.target.href.indexOf("http://victor.boivin.dev/") === 0
-            )
-          ) {
-            if (e.target.href.charAt(0) === "/") {
-              _this.$router.push(e.target.href.substring(1))
-            } else if (e.target.href.indexOf("victor.boivin.dev") === 0) {
-              _this.$router.push(e.target.href.substring(17))
-            } else if (e.target.href.indexOf("https://victor.boivin.dev/") === 0) {
-              _this.$router.push(e.target.href.substring(26))
-            } else if (e.target.href.indexOf("http://victor.boivin.dev/") === 0) {
-              _this.$router.push(e.target.href.substring(25))
-            }
-          }
-        }
-
-      })
+      this.bindLinksToRoute()
     },
     updated() {
-      let links = this.$el.querySelectorAll("a")
-      let _this = this
-      links.forEach(function(link) {
-        link.onclick = function(e) {
-          e.preventDefault()
-          if (
-            typeof e.target === 'object' &&
-            typeof e.target.href === 'string' &&
-            e.target.href !== null &&
-            (
-              e.target.href.charAt(0) === "/" ||
-              e.target.href.indexOf("victor.boivin.dev") === 0 ||
-              e.target.href.indexOf("https://victor.boivin.dev/") === 0 ||
-              e.target.href.indexOf("http://victor.boivin.dev/") === 0
-            )
-          ) {
-            if (e.target.href.charAt(0) === "/") {
-              _this.$router.push(e.target.href.substring(1))
-            } else if (e.target.href.indexOf("victor.boivin.dev") === 0) {
-              _this.$router.push(e.target.href.substring(17))
-            } else if (e.target.href.indexOf("https://victor.boivin.dev/") === 0) {
-              _this.$router.push(e.target.href.substring(26))
-            } else if (e.target.href.indexOf("http://victor.boivin.dev/") === 0) {
-              _this.$router.push(e.target.href.substring(25))
-            }
-          }
-        }
-
-      })
+      this.bindLinksToRoute()
     },
     apollo: {
       pages: {
