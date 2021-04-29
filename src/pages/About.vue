@@ -44,14 +44,15 @@
               e.target.href !== null &&
               (
                 e.target.href.charAt(0) === "/" ||
+                e.target.href.indexOf("#/") === 0 ||
                 e.target.href.match(/[^?]+victor\.boivin\.dev/)
               )
             ) {
               e.preventDefault()
-              if (e.target.href.indexOf("/") === 0) {
-                _this.$router.push(e.target.href.substring(1))
+              if (e.target.href.indexOf("/#/") === 0) {
+                _this.$router.push(e.target.href.substring(3))
               } else {
-                _this.$router.push(e.target.href.replace(/[^?]+victor\.boivin\.dev\/?/, ''))
+                _this.$router.push(e.target.href.replace(/[^?]+victor\.boivin\.dev\/#\//, ''))
               }
             }
           }
