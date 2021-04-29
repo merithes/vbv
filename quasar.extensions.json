@@ -1,0 +1,9 @@
+{
+  "@quasar/apollo": {
+    "graphql_uri": "strapi.victor.boivin.dev/graphql"
+  },
+  "@quasar/qmarkdown": {
+    "import_md": false,
+    "import_vmd": false
+  }
+}
