@@ -37,22 +37,25 @@
         let links = this.$el.querySelectorAll("a")
         let _this = this
         links.forEach(function(link) {
+          let href = link.getAttribute("href");
+          if (typeof href === "string" && href !== null && href.charAt(0) === "/") {
+            link.setAttribute("href", `#${href}`)
+          }
           link.onclick = function(e) {
+            let href = e.target.getAttribute("href");
             if (
-              typeof e.target === 'object' &&
-              typeof e.target.href === 'string' &&
-              e.target.href !== null &&
+              typeof href === 'string' &&
+              href !== null &&
               (
-                e.target.href.charAt(0) === "/" ||
-                e.target.href.indexOf("#/") === 0 ||
-                e.target.href.match(/[^?]+victor\.boivin\.dev/)
+                href.charAt(0) === "/" ||
+                href.indexOf("#/") === 0
               )
             ) {
               e.preventDefault()
-              if (e.target.href.indexOf("/#/") === 0) {
-                _this.$router.push(e.target.href.substring(3))
+              if (href.indexOf("#/") === 0) {
+                _this.$router.push(href.substring(2))
               } else {
-                _this.$router.push(e.target.href.replace(/[^?]+victor\.boivin\.dev\/#\//, ''))
+                _this.$router.push(href.replace(/[^?]+victor\.boivin\.dev\/(.*)/, '$1'))
               }
             }
           }

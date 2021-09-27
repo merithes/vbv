@@ -120,7 +120,7 @@ body.body--dark::after {
 }
 
 .cabin {
-  font-family: Cabin, sans-serif;
+  font-family: Cabin, Arial;
 }
 
 @font-face {
@@ -129,7 +129,7 @@ body.body--dark::after {
 }
 
 .cabin-italic {
-  font-family: 'Cabin Italic', sans-serif;
+  font-family: 'Cabin Italic', Arial;
 }
 
 @font-face {
@@ -138,7 +138,7 @@ body.body--dark::after {
 }
 
 .coda {
-  font-family: 'Coda', sans-serif;
+  font-family: 'Coda', Arial;
 }
 
 @font-face {
@@ -147,7 +147,7 @@ body.body--dark::after {
 }
 
 .orbitron {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Orbitron', Arial;
 }
 
 /*
@@ -295,7 +295,7 @@ body.body--dark::after {
 }
 
 .vbv-home-head-word:first-letter {
-  font-family: 'Orbitron';
+  font-family: 'Orbitron', Arial;
   color: white;
 }
 
@@ -303,7 +303,8 @@ body.body--dark::after {
   margin: 0;
   mask-size: 50%;
   animation: vbv_home_glitch_content 15s infinite steps(1, end);
-  filter: drop-shadow(0 1px 0 rgba(255,0,0,.5)) drop-shadow(0 -1px 0 rgba(0,255,255,.5));
+  filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
+	mix-blend-mode: screen;
 }
 
 .vbv-home-head-content-glitch {
@@ -318,69 +319,84 @@ body.body--dark::after {
 @keyframes vbv_home_glitch_content {
   0% {
     mask-image: linear-gradient(to bottom, white 0 calc(50% - 10px), transparent calc(50% - 10px) calc(50% + 10px), white calc(50% + 10px) 100%);
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0,.5)) drop-shadow(-3px -3px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
   }
   1% {
     mask-image: linear-gradient(to bottom, white 0 calc(52% - 10px), transparent calc(52% - 10px) calc(52% + 10px), white calc(52% + 10px) 100%);
-    filter: drop-shadow(-3px -3px 0 rgba(255,0,0,.5)) drop-shadow(3px 3px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(-3px -3px 0 rgba(255,0,0)) drop-shadow(3px 3px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
   }
   2% {
     mask-image: unset;
-    filter: drop-shadow(0 1px 0 rgba(255,0,0,.5)) drop-shadow(0 -1px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
   }
   20% {
     mask-image: linear-gradient(to bottom, white 0 calc(35% - 15px), transparent calc(35% - 15px) calc(35% + 15px), white calc(35% + 15px) 100%);
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0,.5)) drop-shadow(-3px -3px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
   }
   21% {
     mask-image: unset;
-    filter: drop-shadow(0 1px 0 rgba(255,0,0,.5)) drop-shadow(0 -1px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
   }
   40% {
     mask-image: linear-gradient(to bottom, white 0 calc(60% - 15px), transparent calc(60% - 15px) calc(60% + 15px), white calc(60% + 15px) 100%);
-    filter: drop-shadow(2px -2px 0 rgba(255,0,0,.5)) drop-shadow(2px -2px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(2px -2px 0 rgba(255,0,0)) drop-shadow(2px -2px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
   }
   42% {
     mask-image: linear-gradient(to bottom, white 0 calc(60% - 12px), transparent calc(60% - 12px) calc(60% + 12px), white calc(60% + 12px) 100%);
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0,.5)) drop-shadow(-3px -3px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
   }
   44% {
     mask-image: unset;
-    filter: drop-shadow(0 1px 0 rgba(255,0,0,.5)) drop-shadow(0 -1px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
   }
 }
 
 @keyframes vbv_home_glitch_effect {
   0% {
     clip-path: polygon(0 calc(50% - 7px), 100% calc(50% - 7px), 100% calc(50% + 7px), 0 calc(50% + 7px));
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0,.5)) drop-shadow(-3px -3px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
     transform: translateX(-5px);
   }
   1% {
     clip-path: polygon(0 calc(52% - 7px), 100% calc(52% - 7px), 100% calc(52% + 7px), 0 calc(52% + 7px));
-    filter: drop-shadow(-3px -3px 0 rgba(255,0,0,.5)) drop-shadow(3px 3px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(-3px -3px 0 rgba(255,0,0)) drop-shadow(3px 3px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
     transform: translateX(-5px);
   }
   2% {
-    filter: drop-shadow(0 1px 0 rgba(255,0,0,.5)) drop-shadow(0 -1px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
     clip-path: polygon(0 0, 0 0, 0 0);
   }
   20% {
     clip-path: polygon(0 calc(35% - 12px), 100% calc(35% - 12px), 100% calc(35% + 12px), 0 calc(35% + 12px));
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0,.5)) drop-shadow(-3px -3px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
     transform: translateX(3px);
   }
   21% {
-    filter: drop-shadow(0 1px 0 rgba(255,0,0,.5)) drop-shadow(0 -1px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
     clip-path: polygon(0 0, 0 0, 0 0);
   }
   40% {
     clip-path: polygon(0 calc(60% - 12px), 100% calc(60% - 12px), 100% calc(60% + 12px), 0 calc(60% + 12px));
-    filter: drop-shadow(2px -2px 0 rgba(255,0,0,.5)) drop-shadow(2px -2px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(2px -2px 0 rgba(255,0,0)) drop-shadow(2px -2px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
     transform: translateX(-5px);
   }
   41% {
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0,.5)) drop-shadow(-3px -3px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
     transform: translateX(5px);
   }
   42% {
@@ -388,14 +404,15 @@ body.body--dark::after {
     transform: translateX(3px);
   }
   44% {
-    filter: drop-shadow(0 1px 0 rgba(255,0,0,.5)) drop-shadow(0 -1px 0 rgba(0,255,255,.5));
+    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
+		mix-blend-mode: screen;
     clip-path: polygon(0 0, 0 0, 0 0);
   }
 }
 
 .vbv-home-subtitle {
   animation: fadeInUp 2s linear;
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255);
 }
 
 .vbv-home-head-underline {
@@ -443,7 +460,8 @@ body.body--dark::after {
 
 .vbv-longtext > ::first-letter {
   font-size: 1.2em;
-  text-shadow: -1.5px 0 0 #F007, 1.5px 0 0 #0FF7;
+  text-shadow: -1px 0 0 #F00, 1px 0 0 #0FF;
+	mix-blend-mode: screen;
 }
 
 /*
