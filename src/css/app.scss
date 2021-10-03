@@ -5,7 +5,7 @@
 $xs-breakpoint: 600px;
 $sm-breakpoint: 1024px;
 $md-breakpoint: 1439px;
-$lg-breakpoint: 1920px;
+$lg-breakpoint: 100px;
 
 /*
  *------------------------- GENERAL UTILITIES
@@ -18,29 +18,79 @@ html {
 body {
   overflow-y: scroll;
   scroll-behavior: smooth;
+  color: var(--q-color-dark);
 }
 
-body.body--dark::before {
-  content: '';
-  position: fixed;
+#pageLayout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='100' height='100'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='10' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' fill='transparent'/%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
-  filter: saturate(0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='80' height='80'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='10' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values=' 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0 0 -0.5 1 0 ' /%3E%3CfeColorMatrix type='matrix' values=' 0 0 0 0 0.5 0 0 0 0 0.14 0 0 0 0 0 0 0 0 1 0 ' /%3E%3C/filter%3E%3Cg%3E%3Crect filter='url(%23n)' opacity='.5' width='80' height='80'/%3E%3C/g%3E%3C/svg%3E"),
+    #f0c80c
 }
 
-body.body--dark::after {
-  content: '';
-  position: fixed;
-  z-index: -2;
+.vbv-home::before {
+  content: "";
+  position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
   right: 0;
-  background-color: #1a1a1a;
+  left: 0;
+  z-index: -1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='100' height='100'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values=' .8 .8 0 0 0 .8 .8 0 0 0 0 0 0 0 0 0 0 0 1 0' /%3E%3C/filter%3E%3Crect filter='url(%23g)' width='100' height='100' opacity='.5'/%3E%3C/svg%3E"),
+  linear-gradient(90deg, #cfa600 calc(50% - 2px), #b07300 calc(50% + 2px))
+}
+
+.vbv-bg-yellow {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='80' height='80'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='10' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values=' 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0 0 -0.5 1 0 ' /%3E%3CfeColorMatrix type='matrix' values=' 0 0 0 0 0.5 0 0 0 0 0.14 0 0 0 0 0 0 0 0 1 0 ' /%3E%3C/filter%3E%3Cg%3E%3Crect filter='url(%23n)' opacity='.5' width='80' height='80'/%3E%3C/g%3E%3C/svg%3E"),
+    #f0c80c
+}
+
+.vbv-bg-gold {
+  background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='80' height='80'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='10' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values=' 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0 0 -0.5 1 0 ' /%3E%3CfeColorMatrix type='matrix' values=' 0 0 0 0 0.5 0 0 0 0 0.14 0 0 0 0 0 0 0 0 1 0 ' /%3E%3C/filter%3E%3Cg%3E%3Crect filter='url(%23n)' opacity='.5' width='80' height='80'/%3E%3C/g%3E%3C/svg%3E"),
+  #d09200
+}
+
+@media (max-width: $sm-breakpoint) {
+  #pageLayout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='80' height='80'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='10' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values=' 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0 0 -0.5 1 0 ' /%3E%3CfeColorMatrix type='matrix' values=' 0 0 0 0 0.5 0 0 0 0 0.14 0 0 0 0 0 0 0 0 1 0 ' /%3E%3C/filter%3E%3Cg%3E%3Crect filter='url(%23n)' opacity='.5' width='80' height='80'/%3E%3C/g%3E%3C/svg%3E"),
+      #f0c80c
+  }
+
+  .vbv-home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='100' height='100'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values=' .8 .8 0 0 0 .8 .8 0 0 0 0 0 0 0 0 0 0 0 1 0' /%3E%3C/filter%3E%3Crect filter='url(%23g)' width='100' height='100' opacity='.5'/%3E%3C/svg%3E"),
+    linear-gradient(90deg, #cfa600 calc(50% - 2px), #b07300 calc(50% + 2px))
+  }
+
+  .vbv-bg-yellow {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='80' height='80'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='10' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values=' 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0 0 -0.5 1 0 ' /%3E%3CfeColorMatrix type='matrix' values=' 0 0 0 0 0.5 0 0 0 0 0.14 0 0 0 0 0 0 0 0 1 0 ' /%3E%3C/filter%3E%3Cg%3E%3Crect filter='url(%23n)' opacity='.5' width='80' height='80'/%3E%3C/g%3E%3C/svg%3E"),
+      #f0c80c
+  }
+
+  .vbv-bg-gold {
+    background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='80' height='80'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='10' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values=' 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0.333 0.333 0.333 0 0 0 0 -0.5 1 0 ' /%3E%3CfeColorMatrix type='matrix' values=' 0 0 0 0 0.5 0 0 0 0 0.14 0 0 0 0 0 0 0 0 1 0 ' /%3E%3C/filter%3E%3Cg%3E%3Crect filter='url(%23n)' opacity='.5' width='80' height='80'/%3E%3C/g%3E%3C/svg%3E"),
+    #d09200
+  }
 }
 
 .vbv-body-content a,
@@ -64,6 +114,10 @@ body.body--dark::after {
 
 .vbv-body-content a[href]:focus-visible {
   text-shadow: 0 0 10px var(--q-color-primary), 0 0 15px var(--q-color-primary);
+}
+
+.half-width {
+  width: 50%;
 }
 
 /*
@@ -133,21 +187,21 @@ body.body--dark::after {
 }
 
 @font-face {
-  font-family: 'Coda';
-  src: url(../assets/Fonts/Coda-Regular.ttf);
+  font-family: 'Cinzel';
+  src: url(../assets/Fonts/Cinzel-VariableFont_wght.ttf);
 }
 
-.coda {
-  font-family: 'Coda', Arial;
+.cinzel {
+  font-family: 'Cinzel', Times;
 }
 
 @font-face {
-  font-family: 'Orbitron';
-  src: url(../assets/Fonts/Orbitron.ttf);
+  font-family: 'Fenix';
+  src: url(../assets/Fonts/Fenix.ttf);
 }
 
-.orbitron {
-  font-family: 'Orbitron', Arial;
+.fenix {
+  font-family: 'Fenix', Times;
 }
 
 /*
@@ -256,6 +310,11 @@ body.body--dark::after {
 
 /*********************************** HOME */
 
+.vbv-home-clock {
+  min-width: 800px;
+  z-index: 1;
+}
+
 .vbv-home-responsive-container {
   padding-top: 30%;
 }
@@ -281,6 +340,7 @@ body.body--dark::after {
 
 .vbv-home-head-container {
   position: relative;
+  z-index: 2;
 }
 
 .vbv-home-head-word {
@@ -294,125 +354,9 @@ body.body--dark::after {
   margin-left: 20px;
 }
 
-.vbv-home-head-word:first-letter {
-  font-family: 'Orbitron', Arial;
-  color: white;
-}
-
-.vbv-home-head-content-wrapper {
-  margin: 0;
-  mask-size: 50%;
-  animation: vbv_home_glitch_content 15s infinite steps(1, end);
-  filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
-	mix-blend-mode: screen;
-}
-
-.vbv-home-head-content-glitch {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  animation: vbv_home_glitch_effect 15s infinite steps(1, end);
-}
-
-@keyframes vbv_home_glitch_content {
-  0% {
-    mask-image: linear-gradient(to bottom, white 0 calc(50% - 10px), transparent calc(50% - 10px) calc(50% + 10px), white calc(50% + 10px) 100%);
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-  }
-  1% {
-    mask-image: linear-gradient(to bottom, white 0 calc(52% - 10px), transparent calc(52% - 10px) calc(52% + 10px), white calc(52% + 10px) 100%);
-    filter: drop-shadow(-3px -3px 0 rgba(255,0,0)) drop-shadow(3px 3px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-  }
-  2% {
-    mask-image: unset;
-    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-  }
-  20% {
-    mask-image: linear-gradient(to bottom, white 0 calc(35% - 15px), transparent calc(35% - 15px) calc(35% + 15px), white calc(35% + 15px) 100%);
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-  }
-  21% {
-    mask-image: unset;
-    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-  }
-  40% {
-    mask-image: linear-gradient(to bottom, white 0 calc(60% - 15px), transparent calc(60% - 15px) calc(60% + 15px), white calc(60% + 15px) 100%);
-    filter: drop-shadow(2px -2px 0 rgba(255,0,0)) drop-shadow(2px -2px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-  }
-  42% {
-    mask-image: linear-gradient(to bottom, white 0 calc(60% - 12px), transparent calc(60% - 12px) calc(60% + 12px), white calc(60% + 12px) 100%);
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-  }
-  44% {
-    mask-image: unset;
-    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-  }
-}
-
-@keyframes vbv_home_glitch_effect {
-  0% {
-    clip-path: polygon(0 calc(50% - 7px), 100% calc(50% - 7px), 100% calc(50% + 7px), 0 calc(50% + 7px));
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-    transform: translateX(-5px);
-  }
-  1% {
-    clip-path: polygon(0 calc(52% - 7px), 100% calc(52% - 7px), 100% calc(52% + 7px), 0 calc(52% + 7px));
-    filter: drop-shadow(-3px -3px 0 rgba(255,0,0)) drop-shadow(3px 3px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-    transform: translateX(-5px);
-  }
-  2% {
-    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-    clip-path: polygon(0 0, 0 0, 0 0);
-  }
-  20% {
-    clip-path: polygon(0 calc(35% - 12px), 100% calc(35% - 12px), 100% calc(35% + 12px), 0 calc(35% + 12px));
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-    transform: translateX(3px);
-  }
-  21% {
-    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-    clip-path: polygon(0 0, 0 0, 0 0);
-  }
-  40% {
-    clip-path: polygon(0 calc(60% - 12px), 100% calc(60% - 12px), 100% calc(60% + 12px), 0 calc(60% + 12px));
-    filter: drop-shadow(2px -2px 0 rgba(255,0,0)) drop-shadow(2px -2px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-    transform: translateX(-5px);
-  }
-  41% {
-    filter: drop-shadow(3px 3px 0 rgba(255,0,0)) drop-shadow(-3px -3px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-    transform: translateX(5px);
-  }
-  42% {
-    clip-path: polygon(0 calc(60% - 9px), 100% calc(60% - 9px), 100% calc(60% + 9px), 0 calc(60% + 9px));
-    transform: translateX(3px);
-  }
-  44% {
-    filter: drop-shadow(0 1px 0 rgba(255,0,0)) drop-shadow(0 -1px 0 rgba(0,255,255));
-		mix-blend-mode: screen;
-    clip-path: polygon(0 0, 0 0, 0 0);
-  }
-}
-
 .vbv-home-subtitle {
   animation: fadeInUp 2s linear;
-  color: rgba(255,255,255);
+  z-index: 2;
 }
 
 .vbv-home-head-underline {
@@ -462,6 +406,15 @@ body.body--dark::after {
   font-size: 1.2em;
   text-shadow: -1px 0 0 #F00, 1px 0 0 #0FF;
 	mix-blend-mode: screen;
+}
+
+/*
+ *------------------------- SVG
+*/
+
+.vbv-stroke-dark,
+.vbv-stroke-dark * {
+  stroke: var(--q-color-dark);
 }
 
 /*
