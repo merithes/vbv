@@ -1,0 +1,134 @@
+//
+// Row columns setup
+//
+$max-col: 12;
+
+$responsiveBreakpoints: (
+  'xxl': 1400,
+  'xl': 1200,
+  'lg': 992,
+  'md': 768,
+  'sm': 576,
+  'xs': 0,
+);
+
+//
+// Create default breakpoint column responsiveBreakpoints
+//
+@each $sizeName, $breakpoint in $responsiveBreakpoints {
+  @for $i from 1 through $max-col {
+    .col-#{$sizeName}-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+//
+// Create default column responsiveBreakpoints
+//
+@for $i from 1 through $max-col {
+  .col-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+//
+// Create breakpoint column responsiveBreakpoints for responsive
+//
+@each $breakpointName, $breakpoint in $responsiveBreakpoints {
+  @media (min-width: $breakpoint) {
+    @for $i from 1 through $max-col {
+      .col-#{$breakpointName}-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat($max-col, minmax(0, 1fr));
+  grid-column-gap: MIN(calc(100% / ($max-col - 1)), var(--size-md));
+  grid-row-gap: var(--size-md);
+}
+
+//
+// Size normalization for padding/margin etc...
+//
+
+$normalSizes: (
+  '3xl': 65px,
+  'xxl': 45px,
+  'xl': 35px,
+  'lg': 25px,
+  'md': 15px,
+  'sm': 10px,
+  'xs': 7px,
+  'xxs': 5px,
+  'none': 0,
+);
+
+$directions: (
+  't': '-top',
+  'r': '-right',
+  'b': '-bottom',
+  'l': '-left',
+  'a': '',
+);
+
+:root {
+  @each $sizeName, $sizeVal in $normalSizes {
+    --size-#{$sizeName}: #{$sizeVal};
+
+    .gap-#{$sizeName} {
+      gap: #{$sizeVal};
+    }
+
+    .row-gap-#{$sizeName} {
+      row-gap: #{$sizeVal};
+    }
+
+    .col-gap-#{$sizeName} {
+      column-gap: #{$sizeVal};
+    }
+
+    @each $directionLabel, $directionValue in $directions {
+      .m#{$directionLabel}-#{$sizeName} {
+        margin#{$directionValue}: #{$sizeVal};
+      }
+      .p#{$directionLabel}-#{$sizeName} {
+        padding#{$directionValue}: #{$sizeVal};
+      }
+    }
+  }
+}
+
+@each $breakpointName, $breakpoint in $responsiveBreakpoints {
+  @media (min-width: $breakpoint) {
+    @each $sizeName, $sizeVal in $normalSizes {
+      :root {
+        --size-#{$sizeName}: #{$sizeVal};
+      }
+
+      .gap-#{$breakpointName}-#{$sizeName} {
+        gap: #{$sizeVal};
+      }
+
+      .row-gap-#{$breakpointName}-#{$sizeName} {
+        row-gap: #{$sizeVal};
+      }
+
+      .col-gap-#{$breakpointName}-#{$sizeName} {
+        column-gap: #{$sizeVal};
+      }
+      @each $directionLabel, $directionValue in $directions {
+        .m#{$directionLabel}-#{$breakpointName}-#{$sizeName} {
+          margin#{$directionValue}: #{$sizeVal};
+        }
+        .p#{$directionLabel}-#{$breakpointName}-#{$sizeName} {
+          padding#{$directionValue}: #{$sizeVal};
+        }
+      }
+    }
+  }
+}

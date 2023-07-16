@@ -1,12 +1,37 @@
+import { NavLink } from 'react-router-dom'
 import './Menu.scss'
-function Menu() {
-  return (
-    <>
-      <div className=''>
-        Hello World
-      </div>
-    </>
-  )
-}
+import classNames from 'classnames'
 
-export {Menu}
+interface MenuLink {
+  link?: string
+  label?: string
+  classes?: string[]
+  color?: string
+}
+interface MenuProps {
+  links?: MenuLink[]
+}
+const Menu = ({ links = [] }: MenuProps) => (
+  <div className="menu">
+    <div className="menu-links row">
+      {links.map(({ link, label, classes, color }) => (
+        <div
+          className={classNames(
+            'col-12 menu-link-wrapper menu-link title',
+            `bd-${color ?? 'primary'}`,
+            classes
+          )}
+        >
+          <NavLink
+            to={link ?? ''}
+            className={classNames(`bg-${color ?? 'primary'}-dimmed`)}
+          >
+            {label}
+          </NavLink>
+        </div>
+      ))}
+    </div>
+  </div>
+)
+
+export { Menu }

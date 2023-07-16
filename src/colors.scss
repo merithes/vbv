@@ -1,0 +1,84 @@
+$colors: (
+  'primary': #d8521d,
+  'primary-light': #e67142,
+  'secondary': #d81d46,
+  'accent': #d8b01d,
+  'highlight': #1da3d8,
+
+  'white': white,
+  'dark': #222,
+  'transparent': transparent,
+);
+
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+}
+
+@each $name, $value in $colors {
+  .bg-#{$name} {
+    background-color: $value;
+    --bgColor: #{$value};
+  }
+  .txt-#{$name} {
+    color: $value;
+    --txtColor: #{$value};
+  }
+  .bd-#{$name} {
+    border-color: $value;
+    --bdColor: #{$value};
+  }
+
+  //
+  // Dimmed
+  //
+  $adjusted: rgba($value, 0.5);
+  .bg-#{$name}-dimmed {
+    background-color: $adjusted;
+    --bgColor: #{$adjusted};
+  }
+  .txt-#{$name}-dimmed {
+    color: $adjusted;
+    --txtColor: #{$adjusted};
+  }
+  .bd-#{$name}-dimmed {
+    color: $adjusted;
+    --bdColor: #{$adjusted};
+  }
+}
+
+$themes: (
+  'light': (
+    'back': map-get($colors, 'white'),
+    'text': map-get($colors, 'dark'),
+  ),
+  'dark': (
+    'back': map-get($colors, 'dark'),
+    'text': map-get($colors, 'white'),
+  ),
+);
+
+@each $themeName, $themeValues in $themes {
+  @media (prefers-color-scheme: $themeName) {
+    body {
+      background-color: map-get($themeValues, 'back');
+      --backgroundColor: #{map-get($themeValues, 'back')};
+      color: map-get($themeValues, 'text');
+      --textColor: #{map-get($themeValues, 'text')};
+    }
+
+    .bg-default {
+      background-color: map-get($themeValues, 'back');
+      --bgColor: #{map-get($themeValues, 'back')};
+    }
+    .txt-default {
+      color: map-get($themeValues, 'text');
+      --txtColor: #{map-get($themeValues, 'text')};
+    }
+    .bd-default {
+      color: map-get($themeValues, 'text');
+      --bdColor: #{map-get($themeValues, 'text')};
+    }
+  }
+}

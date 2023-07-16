@@ -1,15 +1,24 @@
 import { Menu } from 'src/Components/Menu/Menu'
-import './DefaultLayout.css'
+import { Outlet } from 'react-router-dom'
+import './DefaultLayout.scss'
 
-function Layout() {
+const Layout = () => (
+  <div className="defaultContainer">
+    <div className="menuContainer">
+      <Menu
+        links={[
+          { link: '/', label: 'Home' },
+          { link: '/styleguide', label: 'Styleguide' },
+        ]}
+      />
+    </div>
 
-  return (
-    <>
-      <div className="test">
-        <Menu/>
+    <div className="pageContainer">
+      <div className="pageContentWrapper">
+        <Outlet />
       </div>
-    </>
-  )
-}
+    </div>
+  </div>
+)
 
-export {Layout}
+export { Layout }
