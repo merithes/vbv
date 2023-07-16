@@ -6,6 +6,8 @@ $colors: (
   'highlight': #1da3d8,
 
   'white': white,
+  'lightgrey': #888,
+  'grey': #444,
   'dark': #222,
   'transparent': transparent,
 );
@@ -33,7 +35,7 @@ $colors: (
   //
   // Dimmed
   //
-  $adjusted: rgba($value, 0.5);
+  $adjusted: rgba($value, 0.7);
   .bg-#{$name}-dimmed {
     background-color: $adjusted;
     --bgColor: #{$adjusted};
@@ -59,26 +61,42 @@ $themes: (
   ),
 );
 
-@each $themeName, $themeValues in $themes {
+@each $themeName, $themeValue in $themes {
   @media (prefers-color-scheme: $themeName) {
     body {
-      background-color: map-get($themeValues, 'back');
-      --backgroundColor: #{map-get($themeValues, 'back')};
-      color: map-get($themeValues, 'text');
-      --textColor: #{map-get($themeValues, 'text')};
+      background-color: map-get($themeValue, 'back');
+      --backgroundColor: #{map-get($themeValue, 'back')};
+      color: map-get($themeValue, 'text');
+      --textColor: #{map-get($themeValue, 'text')};
     }
 
     .bg-default {
-      background-color: map-get($themeValues, 'back');
-      --bgColor: #{map-get($themeValues, 'back')};
+      background-color: map-get($themeValue, 'back');
+      --bgColor: #{map-get($themeValue, 'back')};
     }
     .txt-default {
-      color: map-get($themeValues, 'text');
-      --txtColor: #{map-get($themeValues, 'text')};
+      color: map-get($themeValue, 'text');
+      --txtColor: #{map-get($themeValue, 'text')};
     }
     .bd-default {
-      color: map-get($themeValues, 'text');
-      --bdColor: #{map-get($themeValues, 'text')};
+      color: map-get($themeValue, 'text');
+      --bdColor: #{map-get($themeValue, 'text')};
+    }
+
+    $adjusted: rgba(map-get($themeValue, 'back'), 0.7);
+    .bg-default-dimmed {
+      background-color: $adjusted;
+      --bgColor: #{$adjusted};
+    }
+
+    $adjusted: rgba(map-get($themeValue, 'text'), 0.7);
+    .txt-default-dimmed {
+      color: $adjusted;
+      --txtColor: #{$adjusted};
+    }
+    .bd-default-dimmed {
+      color: $adjusted;
+      --bdColor: #{$adjusted};
     }
   }
 }

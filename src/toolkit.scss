@@ -1,7 +1,6 @@
-//
-// Row columns setup
-//
-$max-col: 12;
+// ======================================================
+// General use variables
+// ======================================================
 
 $responsiveBreakpoints: (
   'xxl': 1400,
@@ -11,50 +10,6 @@ $responsiveBreakpoints: (
   'sm': 576,
   'xs': 0,
 );
-
-//
-// Create default breakpoint column responsiveBreakpoints
-//
-@each $sizeName, $breakpoint in $responsiveBreakpoints {
-  @for $i from 1 through $max-col {
-    .col-#{$sizeName}-#{$i} {
-      grid-column: span $i;
-    }
-  }
-}
-
-//
-// Create default column responsiveBreakpoints
-//
-@for $i from 1 through $max-col {
-  .col-#{$i} {
-    grid-column: span $i;
-  }
-}
-
-//
-// Create breakpoint column responsiveBreakpoints for responsive
-//
-@each $breakpointName, $breakpoint in $responsiveBreakpoints {
-  @media (min-width: $breakpoint) {
-    @for $i from 1 through $max-col {
-      .col-#{$breakpointName}-#{$i} {
-        grid-column: span $i;
-      }
-    }
-  }
-}
-
-.row {
-  display: grid;
-  grid-template-columns: repeat($max-col, minmax(0, 1fr));
-  grid-column-gap: MIN(calc(100% / ($max-col - 1)), var(--size-md));
-  grid-row-gap: var(--size-md);
-}
-
-//
-// Size normalization for padding/margin etc...
-//
 
 $normalSizes: (
   '3xl': 65px,
@@ -76,27 +31,98 @@ $directions: (
   'a': '',
 );
 
-:root {
-  @each $sizeName, $sizeVal in $normalSizes {
+$biDirections: (
+  'x': (
+    '-left',
+    '-right',
+  ),
+  'y': (
+    '-top',
+    '-bottom',
+  ),
+);
+
+// ======================================================
+// Row columns setup
+// ======================================================
+$max-col: 12;
+
+// ========
+// Create default breakpoint column responsiveBreakpoints
+// ========
+@each $sizeName, $breakpoint in $responsiveBreakpoints {
+  @for $i from 1 through $max-col {
+    .col-#{$sizeName}-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+// ========
+// Create default column responsiveBreakpoints
+// ========
+@for $i from 1 through $max-col {
+  .col-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+// ========
+// Create breakpoint column responsiveBreakpoints for responsive
+// ========
+@each $breakpointName, $breakpoint in $responsiveBreakpoints {
+  @media (min-width: $breakpoint) {
+    @for $i from 1 through $max-col {
+      .col-#{$breakpointName}-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat($max-col, minmax(0, 1fr));
+  grid-column-gap: MIN(calc(100% / ($max-col - 1)), var(--size-md));
+  grid-row-gap: var(--size-md);
+}
+
+// ======================================================
+// Size normalization for padding/margin etc...
+// ======================================================
+
+@each $sizeName, $sizeVal in $normalSizes {
+  :root {
     --size-#{$sizeName}: #{$sizeVal};
+  }
+  .gap-#{$sizeName} {
+    gap: #{$sizeVal};
+  }
 
-    .gap-#{$sizeName} {
-      gap: #{$sizeVal};
+  .row-gap-#{$sizeName} {
+    row-gap: #{$sizeVal};
+  }
+
+  .col-gap-#{$sizeName} {
+    column-gap: #{$sizeVal};
+  }
+
+  @each $directionLabel, $directionValue in $directions {
+    .m#{$directionLabel}-#{$sizeName} {
+      margin#{$directionValue}: #{$sizeVal};
     }
-
-    .row-gap-#{$sizeName} {
-      row-gap: #{$sizeVal};
+    .p#{$directionLabel}-#{$sizeName} {
+      padding#{$directionValue}: #{$sizeVal};
     }
-
-    .col-gap-#{$sizeName} {
-      column-gap: #{$sizeVal};
-    }
-
-    @each $directionLabel, $directionValue in $directions {
-      .m#{$directionLabel}-#{$sizeName} {
+  }
+  @each $directionLabel, $directionValues in $biDirections {
+    .m#{$directionLabel}-#{$sizeName} {
+      @each $directionValue in $directionValues {
         margin#{$directionValue}: #{$sizeVal};
       }
-      .p#{$directionLabel}-#{$sizeName} {
+    }
+    .p#{$directionLabel}-#{$sizeName} {
+      @each $directionValue in $directionValues {
         padding#{$directionValue}: #{$sizeVal};
       }
     }
@@ -130,5 +156,96 @@ $directions: (
         }
       }
     }
+  }
+}
+
+// ======================================================
+// Typography
+// ======================================================
+
+.line-normal {
+  line-height: 1.1;
+}
+
+.text-dense {
+  line-height: 1;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-underscore {
+  text-decoration: underline;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-semibold {
+  font-weight: 500;
+}
+
+.text-thin {
+  font-weight: 100;
+}
+
+// ========
+// Font sizes
+// ========
+
+$textSizes: (
+  'reset': '1rem',
+  'xs': '.7em',
+  'sm': '.85em',
+  'md': '1em',
+  'lg': '1.1em',
+  'xl': '1.3em',
+  'xxl': '1.6em',
+  '3xl': '1.8em',
+  '4xl': '2em',
+);
+// ========
+// Create breakpoint column responsiveBreakpoints for responsive
+// ========
+@each $breakpointName, $breakpoint in $responsiveBreakpoints {
+  @each $sizeName, $sizeValue in $textSizes {
+    .text-#{$breakpointName}-#{$sizeName} {
+      font-size: #{$sizeValue};
+    }
+  }
+}
+
+// ========
+// Create default breakpoint column responsiveBreakpoints
+// ========
+@each $sizeName, $sizeValue in $textSizes {
+  .text-#{$sizeName} {
+    font-size: #{$sizeValue};
+  }
+}
+
+// ========
+// Create breakpoint column responsiveBreakpoints for responsive
+// ========
+@each $breakpointName, $breakpoint in $responsiveBreakpoints {
+  @media (min-width: $breakpoint) {
+    @each $sizeName, $sizeValue in $textSizes {
+      .text-#{$breakpointName}-#{$sizeName} {
+        font-size: #{$sizeValue};
+      }
+    }
+  }
+}
+
+// ======================================================
+// Utility classes
+// ======================================================
+
+@each $directionLabel, $directionValue in $directions {
+  .border-#{$directionLabel} {
+    border#{$directionValue}-style: solid;
+    border#{$directionValue}-width: 1px;
   }
 }

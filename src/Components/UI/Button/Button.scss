@@ -19,7 +19,11 @@
     transition: padding 0.1s linear;
   }
 
-  &:hover {
+  &[disabled] {
+    cursor: unset;
+  }
+
+  &:not([disabled]):hover {
     padding: 5px 6px;
     .button {
       padding: 2px 3px;
@@ -31,7 +35,7 @@
     .button {
       padding: 6px 20px;
     }
-    &:hover {
+    &:not([disabled]):hover {
       padding: 5px 15px;
 
       .button {

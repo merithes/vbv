@@ -8,6 +8,7 @@ interface ButtonProps {
   large?: boolean
   outerClasses?: string[]
   innerClasses?: string[]
+  disabled?: boolean
 }
 function Button({
   label = '',
@@ -16,7 +17,10 @@ function Button({
   large = false,
   outerClasses = [],
   innerClasses = [],
+  disabled = false,
 }: ButtonProps) {
+  color = disabled ? 'lightgrey' : color
+  text = disabled ? 'white-dimmed' : text
   return (
     <button
       className={classNames(
@@ -28,6 +32,7 @@ function Button({
           large: large,
         }
       )}
+      disabled={disabled}
     >
       <div className={classNames(innerClasses, 'button', `bg-${color}-dimmed`)}>
         {label}
