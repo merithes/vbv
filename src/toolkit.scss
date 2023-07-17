@@ -3,12 +3,12 @@
 // ======================================================
 
 $responsiveBreakpoints: (
-  'xxl': '1400px',
-  'xl': '1200px',
-  'lg': '992px',
-  'md': '768px',
-  'sm': '576px',
   'xs': '0px',
+  'sm': '576px',
+  'md': '768px',
+  'lg': '992px',
+  'xl': '1200px',
+  'xxl': '1400px',
 );
 
 $normalSizes: (
@@ -48,6 +48,15 @@ $biDirections: (
 $max-col: 12;
 
 // ========
+// Create default column responsiveBreakpoints
+// ========
+@for $i from 1 through $max-col {
+  .col-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+// ========
 // Create default breakpoint column responsiveBreakpoints
 // ========
 @each $sizeName, $breakpoint in $responsiveBreakpoints {
@@ -55,15 +64,6 @@ $max-col: 12;
     .col-#{$sizeName}-#{$i} {
       grid-column: span $i;
     }
-  }
-}
-
-// ========
-// Create default column responsiveBreakpoints
-// ========
-@for $i from 1 through $max-col {
-  .col-#{$i} {
-    grid-column: span $i;
   }
 }
 
