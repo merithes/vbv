@@ -1,35 +1,32 @@
-.defaultContainer {
+.layoutContainer {
   min-height: 100vh;
   .menuContainer {
   }
   .pageContainer {
     .pageContentWrapper {
       position: relative;
-      .page-enter {
-        opacity: 0;
-        background: blue !important;
-        transform: translateY(20px);
-      }
-
-      .page-enter-active {
-        opacity: 1;
-        background: blue !important;
-        transform: translateY(0);
-        transition: opacity 300ms ease-in, transform 300ms ease-in;
-      }
 
       .page-exit {
+        opacity: 1;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        opacity: 1;
-        background: red !important;
       }
       .page-exit-active {
-        background: red !important;
         opacity: 0;
-        transition: opacity 300ms ease-out;
+        transition: opacity 150ms linear;
+      }
+      .page-enter {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      .page-enter-active {
+        opacity: 1;
+        transition: opacity 150ms linear;
       }
     }
   }

@@ -8,7 +8,7 @@ $responsiveBreakpoints: (
   'md': '768px',
   'lg': '992px',
   'xl': '1200px',
-  'xxl': '1400px',
+  'xxl': '1400px'
 );
 
 $normalSizes: (
@@ -20,7 +20,7 @@ $normalSizes: (
   'sm': 10px,
   'xs': 7px,
   'xxs': 5px,
-  'none': 0,
+  'none': 0
 );
 
 $directions: (
@@ -28,18 +28,18 @@ $directions: (
   'r': '-right',
   'b': '-bottom',
   'l': '-left',
-  'a': '',
+  'a': ''
 );
 
 $biDirections: (
   'x': (
     '-left',
-    '-right',
+    '-right'
   ),
   'y': (
     '-top',
-    '-bottom',
-  ),
+    '-bottom'
+  )
 );
 
 // ======================================================
@@ -204,8 +204,9 @@ $textSizes: (
   'xl': '1.3em',
   'xxl': '1.6em',
   '3xl': '1.8em',
-  '4xl': '2em',
+  '4xl': '2em'
 );
+
 // ========
 // Create breakpoint column responsiveBreakpoints for responsive
 // ========
@@ -248,4 +249,20 @@ $textSizes: (
     border#{$directionValue}-style: solid;
     border#{$directionValue}-width: 1px;
   }
+}
+
+// ======================================================
+// To organize
+// ======================================================
+
+.position-relative {
+  position: relative;
+}
+
+.full-vh {
+  min-height: 100vh;
+}
+
+.full-height {
+  height: 100%;
 }

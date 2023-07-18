@@ -1,15 +1,15 @@
 import { Menu } from 'src/Components/Menu/Menu'
 import { useLocation, useOutlet } from 'react-router-dom'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
+import React from 'react'
 import './DefaultLayout.scss'
-import React from 'react'; // Add this line to import React
 
 const Layout = () => {
-  const location = useLocation(),
-        outlet = useOutlet(),
-        nodeRef = React.useRef(null)
+  const location = useLocation()
+  const nodeRef = React.useRef(null)
+  const currentOutlet = useOutlet()
   return (
-    <div className="defaultContainer row">
+    <div className="layoutContainer row">
       <div className="menuContainer col-2 pa-md bg-grey-dimmed bd-lightgrey border-r">
         <Menu
           links={[
@@ -18,19 +18,22 @@ const Layout = () => {
           ]}
         />
       </div>
-        <div className="pageContainer col-10 pa-md">
-          <div className="pageContentWrapper pa-md bg-grey-dimmed">
-            <TransitionGroup>
-              <CSSTransition key={location.pathname} classNames="page" timeout={300} nodeRef={nodeRef} // Add the nodeRef prop
-              >
-                <div ref={nodeRef}>
-                {outlet}
-
-                </div>
+      <div className="pageContainer col-10 pa-md full-vh">
+        <div className="pageContentWrapper pa-md bg-grey-dimmed full-height">
+          <div className="position-relative">
+            <SwitchTransition>
+              <CSSTransition
+                key={location.pathname}
+                nodeRef={nodeRef}
+                timeout={200}
+                classNames="page"
+                unmountOnExit>
+                <div ref={nodeRef}>{currentOutlet}</div>
               </CSSTransition>
-            </TransitionGroup>
+            </SwitchTransition>
           </div>
         </div>
+      </div>
     </div>
   )
 }
