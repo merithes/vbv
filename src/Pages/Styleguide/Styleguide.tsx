@@ -1,4 +1,4 @@
-import { Button } from 'src/Components/UI/Button/Button'
+import { Button } from 'src/Components/UI/Button/Button';
 const Styleguide = () => {
   return (
     <>
@@ -112,6 +112,6 @@ const Styleguide = () => {
         </div>
       </div>
     </>
-  )
-}
-export { Styleguide }
+  );
+};
+export { Styleguide };

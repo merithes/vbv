@@ -1,3 +1,3 @@
-const Introduction = () => <div className="page introduction">intro</div>
+const Introduction = () => <div className="page introduction">intro</div>;
 
-export { Introduction }
+export { Introduction };

@@ -8,6 +8,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,6 +20,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     quotes: ['error', 'single'],
+    'react/react-in-jsx-scope': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
