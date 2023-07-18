@@ -3,5 +3,34 @@
   .menuContainer {
   }
   .pageContainer {
+    .pageContentWrapper {
+      position: relative;
+      .page-enter {
+        opacity: 0;
+        background: blue !important;
+        transform: translateY(20px);
+      }
+
+      .page-enter-active {
+        opacity: 1;
+        background: blue !important;
+        transform: translateY(0);
+        transition: opacity 300ms ease-in, transform 300ms ease-in;
+      }
+
+      .page-exit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        opacity: 1;
+        background: red !important;
+      }
+      .page-exit-active {
+        background: red !important;
+        opacity: 0;
+        transition: opacity 300ms ease-out;
+      }
+    }
   }
 }

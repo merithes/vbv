@@ -1,14 +1,14 @@
-import './Button.scss';
-import classNames from 'classnames';
+import './Button.scss'
+import classNames from 'classnames'
 
 interface ButtonProps {
-  label?: string;
-  color?: string;
-  text?: string;
-  large?: boolean;
-  outerClasses?: string[];
-  innerClasses?: string[];
-  disabled?: boolean;
+  label?: string
+  color?: string
+  text?: string
+  large?: boolean
+  outerClasses?: string[]
+  innerClasses?: string[]
+  disabled?: boolean
 }
 function Button({
   label = '',
@@ -19,8 +19,8 @@ function Button({
   innerClasses = [],
   disabled = false
 }: ButtonProps) {
-  color = disabled ? 'lightgrey' : color;
-  text = disabled ? 'white-dimmed' : text;
+  color = disabled ? 'lightgrey' : color
+  text = disabled ? 'white-dimmed' : text
   return (
     <button
       className={classNames(outerClasses, 'buttonWrapper', `bd-${color}`, `txt-${text}`, {
@@ -30,6 +30,6 @@ function Button({
     >
       <div className={classNames(innerClasses, 'button', `bg-${color}-dimmed`)}>{label}</div>
     </button>
-  );
+  )
 }
-export { Button };
+export { Button }

@@ -1,15 +1,15 @@
-import { NavLink } from 'react-router-dom';
-import './Menu.scss';
-import classNames from 'classnames';
+import { NavLink } from 'react-router-dom'
+import './Menu.scss'
+import classNames from 'classnames'
 
 interface MenuLink {
-  link?: string;
-  label?: string;
-  classes?: string[];
-  color?: string;
+  link?: string
+  label?: string
+  classes?: string[]
+  color?: string
 }
 interface MenuProps {
-  links?: MenuLink[];
+  links?: MenuLink[]
 }
 const Menu = ({ links = [] }: MenuProps) => (
   <div className="menu">
@@ -30,6 +30,6 @@ const Menu = ({ links = [] }: MenuProps) => (
       ))}
     </div>
   </div>
-);
+)
 
-export { Menu };
+export { Menu }
