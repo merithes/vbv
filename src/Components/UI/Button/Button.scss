@@ -23,7 +23,8 @@
     cursor: unset;
   }
 
-  &:not([disabled]):hover {
+  &:not([disabled]):hover,
+  &:not([disabled]):focus-visible {
     padding: 5px 6px;
     .button {
       padding: 2px 3px;
@@ -35,7 +36,8 @@
     .button {
       padding: 6px 20px;
     }
-    &:not([disabled]):hover {
+    &:not([disabled]):hover,
+    &:not([disabled]):focus-visible {
       padding: 5px 15px;
 
       .button {

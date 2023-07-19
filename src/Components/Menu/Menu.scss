@@ -10,7 +10,8 @@
 
     transition: padding 0.1s linear;
     &.active,
-    &:hover {
+    &:hover,
+    &:focus-visible {
       padding-right: 24px;
     }
   }
