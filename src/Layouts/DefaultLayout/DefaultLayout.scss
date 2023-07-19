@@ -1,11 +1,19 @@
 .layoutContainer {
+  position: relative;
   min-height: 100vh;
   .menuContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
   }
-  .page {
-    .pageContainer {
+  .view {
+    width: 1000px;
+    margin: auto;
+    .viewContainer {
       position: relative;
-      .pageContentWrapper {
+      .viewContentWrapper {
         height: 100%;
         overflow-y: overlay;
         scrollbar-width: thin;

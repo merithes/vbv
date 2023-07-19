@@ -9,8 +9,8 @@ const Layout = () => {
     outletRef = useRef<HTMLDivElement | null>(null),
     currentOutlet = useOutlet()
   return (
-    <div className="layoutContainer row">
-      <div className="menuContainer col-2 pa-md bg-grey-dimmed bd-lightgrey border-r">
+    <div className="layoutContainer">
+      <div className="menuContainer pa-md bg-grey-dimmed bd-lightgrey border-r">
         <Menu
           links={[
             { link: '/', label: 'Home' },
@@ -18,10 +18,10 @@ const Layout = () => {
           ]}
         />
       </div>
-      <div className="page col-10 pa-md full-vh">
-        <div className="pageContainer pa-md bg-grey-dimmed full-height">
+      <div className="view pa-md full-vh">
+        <div className="viewContainer pa-md bg-grey-dimmed full-height">
           <div
-            className="pageContentWrapper position-relative"
+            className="viewContentWrapper position-relative"
             tabIndex={0}
             role="region"
             aria-label="page content"
