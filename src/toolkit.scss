@@ -259,8 +259,12 @@ $textSizes: (
   position: relative;
 }
 
-.full-vh {
+.min-full-vh {
   min-height: 100vh;
+}
+
+.full-vh {
+  height: 100vh;
 }
 
 .full-height {

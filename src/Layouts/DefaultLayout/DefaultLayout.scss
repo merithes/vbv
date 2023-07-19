@@ -2,9 +2,14 @@
   min-height: 100vh;
   .menuContainer {
   }
-  .pageContainer {
-    .pageContentWrapper {
+  .page {
+    .pageContainer {
       position: relative;
+      .pageContentWrapper{
+        max-height: 100%;
+        overflow-y: scroll;
+        scrollbar-width: none;
+      }
 
       .page-exit {
         opacity: 1;
@@ -15,7 +20,7 @@
       }
       .page-exit-active {
         opacity: 0;
-        transition: opacity 150ms linear;
+        transition: opacity 75ms linear;
       }
       .page-enter {
         opacity: 0;
@@ -26,7 +31,7 @@
       }
       .page-enter-active {
         opacity: 1;
-        transition: opacity 150ms linear;
+        transition: opacity 75ms linear;
       }
     }
   }
