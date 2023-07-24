@@ -92,9 +92,6 @@ $max-col: 12;
 // ======================================================
 
 @each $sizeName, $sizeVal in $normalSizes {
-  :root {
-    --size-#{$sizeName}: #{$sizeVal};
-  }
   .gap-#{$sizeName} {
     gap: #{$sizeVal};
   }
@@ -129,13 +126,15 @@ $max-col: 12;
   }
 }
 
+:root {
+  @each $sizeName, $sizeVal in $normalSizes {
+    --size-#{$sizeName}: #{$sizeVal};
+  }
+}
+
 @each $breakpointName, $breakpoint in $responsiveBreakpoints {
   @media (min-width: $breakpoint) {
     @each $sizeName, $sizeVal in $normalSizes {
-      :root {
-        --size-#{$sizeName}: #{$sizeVal};
-      }
-
       .gap-#{$breakpointName}-#{$sizeName} {
         gap: #{$sizeVal};
       }
