@@ -138,12 +138,14 @@ export default function Styleguide() {
           <div className="col-12">
             <h2>Skeletons</h2>
           </div>
-          <div className="col-12">
-            <Skeleton classes="full-radius square" height="5em" />
-            <Skeleton width="89%" />
-            <Skeleton />
-            <Skeleton />
-            <Skeleton />
+          <div className="col-1">
+            <Skeleton classes="full-radius square" height="auto" width="100%" />
+          </div>
+          <div className="col-11">
+            <Skeleton width="75%" />
+            <Skeleton width="80%" />
+            <Skeleton width="71%" />
+            <Skeleton width="85%" />
           </div>
         </div>
       </div>
