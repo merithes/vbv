@@ -9,13 +9,13 @@ interface SkeletonProps {
   classes?: string[] | string
 }
 
-export default ({
+export default function Skeleton({
   color = 'lightgrey',
   height = '1em',
   width = null,
   type = 'text',
   classes = []
-}: SkeletonProps) => {
+}: SkeletonProps) {
   if (height === '1em' && width === null) {
     width = '100%'
   } else if (width === null) {

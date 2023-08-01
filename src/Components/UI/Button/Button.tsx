@@ -11,7 +11,7 @@ interface ButtonProps {
   disabled?: boolean
 }
 
-export default ({
+export default function Button({
   label = '',
   color = 'primary',
   text = 'white',
@@ -19,7 +19,7 @@ export default ({
   outerClasses = [],
   innerClasses = [],
   disabled = false
-}: ButtonProps) => {
+}: ButtonProps) {
   color = disabled ? 'lightgrey' : color
   text = disabled ? 'white-dimmed' : text
   return (

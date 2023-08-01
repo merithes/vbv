@@ -4,7 +4,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { useRef } from 'react'
 import './DefaultLayout.scss'
 
-export default () => {
+export default function DefaultLayout() {
   const location = useLocation(),
     outletRef = useRef<HTMLDivElement | null>(null),
     currentOutlet = useOutlet()

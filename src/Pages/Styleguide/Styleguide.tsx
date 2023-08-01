@@ -1,7 +1,7 @@
 import Button from 'src/Components/UI/Button/Button'
 import Skeleton from 'src/Components/UI/Skeleton/Skeleton'
 
-export default () => {
+export default function Styleguide() {
   return (
     <>
       <div className="row">

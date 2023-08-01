@@ -1,1 +1,3 @@
-export default () => <div className="page introduction">intro</div>
+export default function Introduction() {
+  return <div className="page introduction">intro</div>
+}
