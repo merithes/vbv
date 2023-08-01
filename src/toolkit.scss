@@ -269,3 +269,11 @@ $textSizes: (
 .full-height {
   height: 100%;
 }
+
+.full-radius {
+  border-radius: 100%;
+}
+
+.square {
+  aspect-ratio: 1;
+}

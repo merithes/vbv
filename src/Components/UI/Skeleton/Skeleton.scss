@@ -1,0 +1,17 @@
+.skeleton {
+  display: inline-block;
+  animation: skeleton 10s linear infinite;
+
+  background: right 0 / 300% 100%
+    linear-gradient(120deg, transparent 20%, #fff5 calc(20% + 20px), transparent calc(20% + 60px))
+    fixed no-repeat;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 166%;
+  }
+  100% {
+    background-position: -66%;
+  }
+}

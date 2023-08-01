@@ -1,5 +1,7 @@
-import { Button } from 'src/Components/UI/Button/Button'
-const Styleguide = () => {
+import Button from 'src/Components/UI/Button/Button'
+import Skeleton from 'src/Components/UI/Skeleton/Skeleton'
+
+export default () => {
   return (
     <>
       <div className="row">
@@ -107,11 +109,44 @@ const Styleguide = () => {
               <h1 className="text-bold">H1 Header</h1>
               <h2 className="text-semibold">H2 Header</h2>
               <h3 className="text-thin">H3 Header</h3>
+              <h1 className="text-bold text-italic">H1 Header</h1>
+              <h2 className="text-semibold text-italic">H2 Header</h2>
+              <h3 className="text-thin text-italic">H3 Header</h3>
             </div>
+          </div>
+          <div className="col-6 row">
+            <div className="col-12">
+              <div className="text-4xl">Aa</div>
+              <div>Roboto</div>
+              <div className="border-t bd-white-dimmed mt-md"></div>
+            </div>
+            <div className="col-12">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+              <p className="text-bold">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              </p>
+              <p className="text-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              </p>
+              <p className="text-bold text-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="col-12 row bg-grey-dimmed pa-md">
+          <div className="col-12">
+            <h2>Skeletons</h2>
+          </div>
+          <div className="col-12">
+            <Skeleton classes="full-radius square" height="5em" />
+            <Skeleton width="89%" />
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
           </div>
         </div>
       </div>
     </>
   )
 }
-export { Styleguide }

@@ -11,7 +11,8 @@ interface MenuLink {
 interface MenuProps {
   links?: MenuLink[]
 }
-const Menu = ({ links = [] }: MenuProps) => (
+
+export default ({ links = [] }: MenuProps) => (
   <div className="menu">
     <div className="menu-links row">
       {links.map(({ link, label, classes, color }, index) => (
@@ -31,5 +32,3 @@ const Menu = ({ links = [] }: MenuProps) => (
     </div>
   </div>
 )
-
-export { Menu }

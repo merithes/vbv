@@ -1,3 +1,1 @@
-const Introduction = () => <div className="page introduction">intro</div>
-
-export { Introduction }
+export default () => <div className="page introduction">intro</div>

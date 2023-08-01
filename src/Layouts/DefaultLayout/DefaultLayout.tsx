@@ -1,10 +1,10 @@
-import { Menu } from 'src/Components/Menu/Menu'
+import Menu from 'src/Components/Menu/Menu'
 import { useLocation, useOutlet } from 'react-router-dom'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { useRef } from 'react'
 import './DefaultLayout.scss'
 
-const Layout = () => {
+export default () => {
   const location = useLocation(),
     outletRef = useRef<HTMLDivElement | null>(null),
     currentOutlet = useOutlet()
@@ -43,5 +43,3 @@ const Layout = () => {
     </div>
   )
 }
-
-export { Layout }

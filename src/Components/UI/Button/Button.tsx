@@ -10,7 +10,8 @@ interface ButtonProps {
   innerClasses?: string[]
   disabled?: boolean
 }
-function Button({
+
+export default ({
   label = '',
   color = 'primary',
   text = 'white',
@@ -18,7 +19,7 @@ function Button({
   outerClasses = [],
   innerClasses = [],
   disabled = false
-}: ButtonProps) {
+}: ButtonProps) => {
   color = disabled ? 'lightgrey' : color
   text = disabled ? 'white-dimmed' : text
   return (
@@ -32,4 +33,3 @@ function Button({
     </button>
   )
 }
-export { Button }
